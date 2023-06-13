@@ -1,8 +1,10 @@
 <?php
 require 'config.php';
+//CREATING SEESION
 if(!empty($_SESSION["user"])){
   header("Location: custform.php");
 }
+//CREATING LOGIN PAGE
 if(isset($_POST["submit"])){
   $username = $_POST["username"];
   $password = $_POST["pass"];
@@ -28,10 +30,7 @@ if(isset($_POST["submit"])){
   }
  
     }
-    // else{
-    //   echo
-    //   "<script> alert('User Not Registered'); </script>";
-    // }
+    
     else{
       echo
       "<script> alert('Wrong Password'); </script>";
@@ -147,15 +146,9 @@ if(isset($_POST["submit"])){
         <input type="password" placeholder="Enter Password" name="pass" required>
       </div>
       <button type="submit" name="submit">Login</button>
-      <!-- <tr><td><label  for="fname">NAME</label> <br><br>
-        <input type="text" id="fname" name="username" required></td></tr>
-
-        <tr><td><label  for="pwd">PASSWORD</label><br><br>
-        <input type="password" id="pwd" name="pass" required></tr></td>
-  
-        <button type="submit" id="but" name="submit">LOGIN </button> -->
+      
   </centre>
-  <!-- </div> -->
+
      
 </form>
 </table>

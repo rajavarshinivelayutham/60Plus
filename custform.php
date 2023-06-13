@@ -44,6 +44,7 @@ if (isset($_POST["submit"]))
   $relationship=$_POST["relationship"];
   $country=$_POST["country"];
   $email=$_POST["email"];
+                     //storing the values in database
  $query="insert into customer_details values( '','$name','$phnumber','$gender','$patientcondition1','$complaints','$date','$daymon','$address','$landmark','$pincode','$state','$location','$other','$age','$weight','$healthcare1','$timeservice1','$timeservice3','$timeservice5','$medicine1','$caretender1','$homesafety1','$foodservice1','$famname','$famnumber','$relationship','$country','$email')";
   mysqli_query($conn,$query);
   if($query)
@@ -59,10 +60,7 @@ if (isset($_POST["submit"]))
 }
   
 
- // $query1 = mysqli_query($conn,"SELECT * FROM customer_details");
 
-
-//  $query1 = $mysqli->query($conn,"SELECT * FROM customer_details");
 
 ?>
 <!DOCTYPE html>
@@ -160,17 +158,7 @@ input[type="number"]{
  
  
   
-/* input[type="checkbox"]:checked::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  position: absolute;
-  top: 55%;
-  left: 60%;
-  transform: translate(-50%, -50%);
-  background-color: #333;
-  border-radius: 50%;
-}  */
+
 label {
   font-size: 15px;
   font-weight: bold;
@@ -193,8 +181,9 @@ label {
 </head>
 <body>
 
-                              <!-- FORM  -->
+                              <!-- FORM CREATION  -->
 <table>
+  
   <div class="form-center">
 <form action="" method="POST" >
                          <!-- CUSTOMER DETAILS SECTION -->
@@ -512,10 +501,8 @@ label {
 <input type="email" id="mailid" name="email" onsubmit="return validateEmail()"  required><BR><BR></div>
 
 
-<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.5837201044933!2d80.25758181482226!3d12.998455990838249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52677c710678eb%3A0x751b06db40f73327!2s60Plus%20India!5e0!3m2!1sen!2sin!4v1683797954309!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
   <div class="item"><button type="submit" name="submit" style="background-color:  Blue De France ; font-size : large; border-radius:3px">SUBMIT</button></div>
 
-<!-- <button type="submit" id="dis" onclick="display()">DISPLAY</button> -->
 
 </form>
 </div>
@@ -523,8 +510,9 @@ label {
 <a href="logout.php"><button type="submit" id="log"   style="background-color: Blue De France ; font-size : large; border-radius:3px">LOGOUT</button></a>
  
                       <!-- JAVASCRIPT AND JQUERY SECTION --->
-
+                      <!--VALIDATION-->
 <script>
+  //STORING MULTIPLE VALUES IN CHECKBOX
     $(document).ready(function() {
         $('.checkbox').click(function() {
             var targetDiv = $('#' + $(this).data('target'));

@@ -1,6 +1,6 @@
 <?php
 require "config.php";
-
+//FORM CREATION OF PATIENT-DETAILS AND STORING IN EXCEL
 
 if (isset($_POST["submit"]))
 {
@@ -32,7 +32,7 @@ if (isset($_POST["submit"]))
   $address=$_POST["address"];
   $apparatus=$_POST["apparatus"];
   $apparatus1=implode(",",$apparatus);
-
+        //STORING DATAS IN DATABASE
   $query="insert into patient_details values( '','$name','$dob','$age','$gender','$phno','$weight','$paaddress','$disease1','$illness','$diseasename','$medicinename','$doctorname','$specialist','$timing','$diseasename1','$medicinename1','$doctorname1','$specialist1','$timing1','$operation','$docdetails','$docname','$hospital','$dphno','$address','$apparatus1')";
   mysqli_query($conn,$query);
   if($query)
@@ -46,8 +46,7 @@ if (isset($_POST["submit"]))
   }
 
 } 
-// $result = mysqli_query($conn, "SELECT * FROM patient_details");
-//   $row1 = mysqli_num_rows($result1);
+  
 ?>  
 <!DOCTYPE html>
 <html lang="en">
@@ -393,7 +392,7 @@ if (isset($_POST["submit"]))
     
        
    <script>
-    
+  //STORING MULTILPLE VALUES IN CHECKBOX
     function showme(id) {
         var gfg = document.getElementById(id);
         var GFG = document.getElementById("geeks");
@@ -407,7 +406,7 @@ if (isset($_POST["submit"]))
                 '<i class="fa fa-plus-circle"></i>';
         }
     }
-
+  //VALIDATION FOR FORM
     function validateName() {
       var nameInput = document.getElementById("name");
       var name = nameInput.value.trim();
@@ -444,7 +443,7 @@ for (let i = 0; i < radioButtons.length; i++) {
   radioButtons[i].addEventListener("change", toggleFeedbackTextbox);
 }
 
-
+//AUTOMATIC CALCULATION AGE
 function FindAge() {
     var day = document.getElementById("dob").value;
     var DOB = new Date(day);

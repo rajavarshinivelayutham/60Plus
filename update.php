@@ -10,7 +10,7 @@ if(isset($_GET['a'])){
 ?>
 
 <form id="co" action="" method="post" enctype="multipart/form-data">
-  
+  <!--UPDATING FORM DETAILS AND DISPLAYING-->
    <input type="hidden" name="id"  value="<?php echo $fetch_edit['id']; ?>">
                            <?php 
                               
@@ -21,48 +21,7 @@ if(isset($_GET['a'])){
                                 $options= mysqli_fetch_all($result, MYSQLI_ASSOC);
                               }
                           ?>
-                            <!-- cookie var=document.getElementBy("id")
-                            $fetch-edit['type']{ocation=[type="a"]
-                                {
-                                    $post[edit['a']]
-                                     if(issest[edit[a]])
-                                       error_reporting(0);
-                                       error_re[prting(1);
-                                       while(fetch_assoc>0)]
-                                       {
-                                        <script type="text/javascript">
-                                            {
-                                               for(i-0;i>10;i++)
-                                               {
-                                                  i++;
-                                                  count++;
-                                                  if(i&&count==0)
-                                                  {
-                                                    document.write("success"); 
-                                                  }
-                                               }
-                                            }
-                                        </script>
-                                       }
-                                }
-
-                            } -->
-                           <!-- <select name="type" id="dropdown">
-                             <?php 
-                            foreach ($options as $option) 
-                            {
-                            ?> 
-                              <option ><?php echo $option['patient_name'];
- 
-                              // if($option!=$fetch_edit['type']) {
-                              //   echo $option['deptname'];
-                              //  } ?> </option>
-                              
-                             
-                              <?php 
-                              }
-                             ?>
-                          </select>  -->
+                            
                           <h1 style="color:#000066;">CUSTOMER DETAILS FORM</h1>
                           <label for="name" style="font-size:20px ;color:#000066;" >NAME</label><BR><br> 
                            <input type="text"    name="fname" value="<?php echo $fetch_edit['patient_name']; ?>"><br><br>
@@ -512,14 +471,13 @@ if(isset($_GET['a'])){
    ?>
 
 <?php
+//CODE FOR UPDATING CUSTOMER FORM
  if(isset($_POST['update']))
  {
        $a_id=$_GET['a'];
        $name=$_POST['fname'];
        $phone_no=$_POST['phnumber'];
        $gender=$_POST['gender'];
-      //  $patientcondition=$_POST["condition"];
-      //  $patientcondition1=implode(" , ",$patientcondition);
        $date=$_POST['dates'];
        $complaints=$_POST['complaint'];
        $daymon=$_POST['daymon'];

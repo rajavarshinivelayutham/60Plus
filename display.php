@@ -1,4 +1,6 @@
 <?php
+
+//DISPLAYING AND DOWNLOADING IT IN EXCEL FORMAT
 include_once('config.php');
 $result = mysqli_query($conn, "SELECT * FROM patient_details");
 ?>
@@ -58,6 +60,7 @@ $result = mysqli_query($conn, "SELECT * FROM patient_details");
            <?php
               while($rows=mysqli_fetch_assoc($result))
              {
+              //DISPLAYING THE DETAILS OF PATIENTS IN OUTPUT
                 ?>
                 <tr>
                     <td><?php echo $rows['id'] ?></td>
@@ -104,6 +107,7 @@ $result = mysqli_query($conn, "SELECT * FROM patient_details");
     <button type="submit" onclick="tableToCSV()">DOWNLOAD</button>
         </body>
         <script type="text/javascript">
+          //DOWNLOADING THE FORM IN EXCEL SHEET
         function tableToCSV() {
  
             // Variable to store the final csv data

@@ -1,16 +1,7 @@
+
 <?php
 include_once('config.php');
 $result = mysqli_query($conn, "SELECT * FROM customer_details");
-// if(isset($_GET['id'])){
-//   $id=$_GET['id'];
-//   $delete=mysqli_query($conn,"DELETE * FROM customer_details where id='$id'");
-//   if($delete)
-//   {
-//     header("location:custdisplay.php");
-//     die();
-//   }
-// }
-  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,6 +34,7 @@ $result = mysqli_query($conn, "SELECT * FROM customer_details");
            }
       </style>
     <table align:"center" border:"1px"  style="width:600px;line-height:60px;">
+    <!--TABLE CREATION TO DISPLAY THE DATAS IN OUTPUT-->
             <tr><th colspan="4">customer records</th></tr>
             <t>
             <th>id</th>
@@ -51,7 +43,6 @@ $result = mysqli_query($conn, "SELECT * FROM customer_details");
            <th>gender</th>
            <th>patients_condition</th>
            <th>patients_complaints</th>
-         
            <th>date</th>
            <th>noofdays</th>
            <th>address</th>
@@ -84,7 +75,9 @@ $result = mysqli_query($conn, "SELECT * FROM customer_details");
 
 
         </t>
+       
            <?php
+           //CODE FOR DISPLAYING CUSTOMER DETAILS IN OUTPUT 
               while($rows=mysqli_fetch_assoc($result))
              {
                 ?>
@@ -118,8 +111,8 @@ $result = mysqli_query($conn, "SELECT * FROM customer_details");
                     <td><?php echo $rows['relationship'] ?></td>
                     <td><?php echo $rows['country'] ?></td>
                     <td><?php echo $rows['email'] ?></td>
+                  
                   <td><a href="custdisplay.php?de=<?php echo $rows['id'];?>">delete</a></td>
-                  <!-- <a href="?id?a=<php echo $rows ['id'];?>"> -->
                   <td><a href="update.php?a=<?php echo $rows['id'];?>">edit</a></td>
 
 
@@ -129,8 +122,9 @@ $result = mysqli_query($conn, "SELECT * FROM customer_details");
           ?>
     </table>
    
-        
+       
     <?php
+    //CODE FOR DELETING THE DETAILS OF CUSTOMER IN FORM
 include_once('config.php');
   
  if(isset($_GET['de']))
@@ -139,7 +133,6 @@ include_once('config.php');
        
        $result = mysqli_query($conn, "SELECT * FROM customer_details");
        $rows=mysqli_fetch_assoc($result);
-      //  $id= $rows['id'];
        $query="DELETE from customer_details where id='$a_id' ";
        $query_run=mysqli_query($conn,$query);
        if($query_run)
