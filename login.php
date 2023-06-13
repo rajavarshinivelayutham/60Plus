@@ -12,25 +12,32 @@ if(isset($_POST["submit"])){
     if($password == $row['password']){
       $_SESSION["regist"] = true;
       $_SESSION["user"] = $row["username"];
-      header("Location: custform.php");
+      
+       header("Location: custform.php");
      
+      
+     }
+     else{
+      echo
+      "<script> alert('Wrong Password'); </script>";
     }
+  }
+  else{
+    echo
+    "<script> alert('User Not Registered'); </script>";
+  }
+ 
+    }
+    // else{
+    //   echo
+    //   "<script> alert('User Not Registered'); </script>";
+    // }
     else{
       echo
       "<script> alert('Wrong Password'); </script>";
     }
-    }
-    else{
-      echo
-      "<script> alert('User Not Registered'); </script>";
-    }
 
     
-  }
-  // else{
-  //  echo
-  //  "<script> alert('User Not Registered'); </script>";
-  // }
 
 ?>
 <!doctype html>
@@ -52,7 +59,7 @@ if(isset($_POST["submit"])){
       font-size: 15px;
       }
       form {
-	  
+       margin:auto;
       border: 5px solid #f1f1f1;
       position:absolute;
       bottom:160px;
